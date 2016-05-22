@@ -4,7 +4,7 @@ using System.Collections;
 public class Brick : MonoBehaviour {
 
     public int maxHits;
-    private int timesHit;
+    public int timesHit;
 
 	// Use this for initialization
 	void Start () {
@@ -19,5 +19,9 @@ public class Brick : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D collision)  {
         timesHit++;
+        if (timesHit >= maxHits)
+        {
+            Destroy(gameObject);
+        }
     }
 }
