@@ -9,7 +9,6 @@ public class Brick : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         timesHit = 0;
-
 	}
 	
 	// Update is called once per frame
