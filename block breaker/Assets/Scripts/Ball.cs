@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Ball : MonoBehaviour {
-    public Paddle paddle;
+    private Paddle paddle;
     public Rigidbody2D rb;
     private bool hasStarted = false;
 
@@ -10,6 +10,7 @@ public class Ball : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        paddle = FindObjectOfType<Paddle>();
         paddleToBallVector = this.transform.position - paddle.transform.position;
 
         rb = GetComponent<Rigidbody2D>();
