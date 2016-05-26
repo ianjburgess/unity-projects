@@ -13,7 +13,7 @@ GameObject:
   - 114: {fileID: 11493752}
   m_Layer: 0
   m_Name: 1 hit
-  m_TagString: Untagged
+  m_TagString: Breakable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55,8 +55,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92cb3a1454c2e224496bcc0a52ed993f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHits: 2
-  timesHit: 0
+  hitSprites: []
 --- !u!212 &21227180
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -83,7 +82,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ed7cb68f4e171e942ae24186d6470902, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1908c6507c854c04bb51e3fa3cc90dc9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
