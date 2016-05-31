@@ -5,6 +5,7 @@ public class Brick : MonoBehaviour {
 
     public Sprite[] hitSprites;
     public static int breakableCount = 0;
+    public GameObject smoke;
 
     private int timesHit;
     private LevelManager levelManager;
@@ -39,6 +40,7 @@ public class Brick : MonoBehaviour {
         if (timesHit >= maxHits) {
             breakableCount--;
             levelManager.BrickDestroyed();
+            PuffSmoke();
             Destroy(gameObject);
         }
         else {
@@ -46,10 +48,17 @@ public class Brick : MonoBehaviour {
         }
     }
 
+    void PuffSmoke () {
+        GameObject smokePuff = Instantiate(smoke, transform.position, Quaternion.identity) as GameObject;
+        smokePuff.GetComponent<ParticleSystem>().startColor = gameObject.GetComponent<SpriteRenderer>().color;
+    }
+
     void LoadSprites () {
         int spriteIndex = timesHit - 1;
         if (hitSprites[spriteIndex]) {
             GetComponent<SpriteRenderer>().sprite = hitSprites[spriteIndex];
+        } else {
+            Debug.LogError("Brick sprite missing");
         }
     }
     // TODO Remove this method once we can actually win!
