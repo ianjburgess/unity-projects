@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scripts\LevelManager.cs" />
     <Compile Include="Assets\Scripts\MusicPlayer.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Position.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Space Shooter Extension (275 assets)\License.txt" />
