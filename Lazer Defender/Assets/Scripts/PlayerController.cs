@@ -4,6 +4,7 @@ public class PlayerController : MonoBehaviour
 {
     public GameObject attack;
     public float attackSpeed;
+    public float playerHealth = 150f;
     public float firingRate = 0.2f;
     public float padding = 1f;
     public float speed = 15.0f;
@@ -49,9 +50,24 @@ public class PlayerController : MonoBehaviour
         transform.position = new Vector3(newX, transform.position.y, transform.position.z);
     }
 
+    // Basic Attack
     private void Fire()
     {
-        var attackBasic = Instantiate(attack, transform.position, Quaternion.identity) as GameObject;
+        Vector3 offset = new Vector3(0, 0.3f, 0);
+        var attackBasic = Instantiate(attack, transform.position+offset, Quaternion.identity) as GameObject;
         attackBasic.GetComponent<Rigidbody2D>().velocity = new Vector3(0, attackSpeed, 0);
+    }
+
+    // Damage/Health Control
+    void OnTriggerEnter2D(Collider2D collider) {
+        EnemyProjectile missile = collider.gameObject.GetComponent<EnemyProjectile>();
+
+        if (missile) {
+            playerHealth -= missile.GetDamage();
+            missile.Hit();
+            if (playerHealth <= 0) {
+                Destroy(gameObject);
+            }
+        }
     }
 }
